@@ -281,6 +281,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
               <div v-if="!transform">
                 <i>null <span v-if="!space">(No Space)</span></i>
               </div>
+              <div v-if="space?.boundsGeometry !== undefined">
+                Bounds Geometry Points: {{space.boundsGeometry.length}}
+              </div>
             </section>
           `,
           mounted: function () {
@@ -362,6 +365,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             name: 'WebXR Lighting Estimation',
             url: 'https://immersive-web.github.io/lighting-estimation/',
             supported: 'requestLightProbe' in (window.XRSession?.prototype || {})
+          },
+          {
+            name: 'WebXR Hand Input',
+            url: 'https://www.w3.org/TR/webxr-hand-input/',
+            supported: 'hand' in (window.XRInputSource?.prototype || {})
           }
         ];
 
